@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --no-cache"
+    "lint": "next lint --no-cache",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}' && next lint --fix"
   },
   "dependencies": {
     "next": "13.5.4",
@@ -23,6 +24,8 @@
     "@typescript-eslint/parser": "^6.7.4",
     "eslint": "^8.51.0",
     "eslint-config-next": "13.5.4",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "3.0.3",
     "typescript": "^5.2.2"
   }
 }
