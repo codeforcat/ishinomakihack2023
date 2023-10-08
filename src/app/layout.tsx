@@ -40,7 +40,7 @@ export default function RootLayout({
               padding: '4px 18px',
             })}
           >
-            <small>&copy; Code for CAT at Ishinomakihack2023</small>
+            <small>Code for CAT at Ishinomakihack2023</small>
           </footer>
         </div>
       </body>
