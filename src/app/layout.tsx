@@ -19,8 +19,9 @@ export default function RootLayout({
           className={grid({
             columns: 1,
             gridTemplateRows: 'auto min-content',
-            gap: '0',
+            gap: '18px',
             minHeight: '100dvh',
+            backgroundColor: 'catVivid',
           })}
         >
           <main

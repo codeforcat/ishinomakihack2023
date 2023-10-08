@@ -11,6 +11,10 @@
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}' && next lint --fix"
   },
   "dependencies": {
+    "@fontsource-variable/m-plus-2": "^5.0.7",
+    "@fontsource-variable/material-symbols-rounded": "^5.0.7",
+    "@fontsource/m-plus-2": "^5.0.7",
+    "@fontsource/material-icons-round": "^5.0.7",
     "@tensorflow-models/speech-commands": "^0.5.4",
     "@tensorflow/tfjs": "^4.11.0",
     "@tensorflow/tfjs-data": "^4.11.0",
