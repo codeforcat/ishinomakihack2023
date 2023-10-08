@@ -13,17 +13,17 @@ export default function SearchResultsBlock() {
       // 1. A callback function that is invoked anytime a word is recognized.
       // 2. A configuration object with adjustable fields
       return recognizer.listen(async result => {
-          // render the probability scores per class
-          classLabels.map(async (label, i) => {
-            const score = result.scores[i];
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            setRecognitionResult(score as any);
-          });
+        // render the probability scores per class
+        classLabels.map(async (_, i) => {
+          const score = result.scores[i];
+          const roundedScore = Math.round(score as number * 100);
+          setRecognitionResult(roundedScore);
+        });
       }, {
-          includeSpectrogram: true, // in case listen should return result.spectrogram
-          probabilityThreshold: 0.75,
-          invokeCallbackOnNoiseAndUnknown: true,
-          overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+        includeSpectrogram: true, // in case listen should return result.spectrogram
+        probabilityThreshold: 0.75,
+        invokeCallbackOnNoiseAndUnknown: true,
+        overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
       });
     } catch (e) {
       console.error(e);
