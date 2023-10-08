@@ -1,8 +1,6 @@
-import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { flex, grid } from '../../styled-system/patterns'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +13,37 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body suppressHydrationWarning={true}>
+        <div
+          className={grid({
+            columns: 1,
+            gridTemplateRows: 'auto min-content',
+            gap: '0',
+            minHeight: '100dvh',
+          })}
+        >
+          <main
+            className={flex({
+              direction: 'column',
+              flex: '1 0 100%',
+            })}
+          >
+            {children}
+          </main>
+          <footer
+            className={flex({
+              justify: 'center',
+              align: 'center',
+              backgroundColor: 'catDark',
+              color: 'white',
+              padding: '4px 18px',
+            })}
+          >
+            <small>&copy; Code for CAT at Ishinomakihack2023</small>
+          </footer>
+        </div>
+      </body>
     </html>
   )
 }
