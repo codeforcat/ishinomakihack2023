@@ -8,12 +8,15 @@ import { useState } from 'react'
 const data: any[] = []
 
 export default function SearchResultsBlock() {
+  const [isConnecting, setIsConnecting] = useState(false)
   const [isListening, setIsListening] = useState(false)
 
   const handleClick = async () => {
     try {
+      setIsConnecting(true)
       const recognizer = await createSpeechCommandsModel()
       const classLabels = recognizer.wordLabels() // get class labels
+      setIsConnecting(false)
       setIsListening(true)
       // listen() takes two arguments:
       // 1. A callback function that is invoked anytime a word is recognized.
@@ -83,17 +86,17 @@ export default function SearchResultsBlock() {
               fontSize: '24px',
               width: '50px',
               height: '50px',
-              color: isListening ? 'white' : 'inherit',
-              backgroundColor: isListening ? '#ed0000' : '#faff7c',
+              color: isConnecting ? 'white' : isListening ? 'white' : 'inherit',
+              backgroundColor: isConnecting ? '#c9c9c9' : isListening ? '#ed0000' : '#faff7c',
               boxShadow: 'box',
               borderRadius: '50%',
               margin: '8px',
             })}
             aria-hidden="true"
           >
-            mic
+            {isConnecting ? 'hourglass_empty' : isListening ? 'graphic_eq' : 'mic'}
           </span>
-          音声取り込み
+          {isConnecting ? '接続中...' : isListening ? '音声検知中...' : '音声を検知する'}
         </button>
       </div>
       <Bar
