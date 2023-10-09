@@ -18,7 +18,7 @@ export default function SearchResultsBlock() {
       // listen() takes two arguments:
       // 1. A callback function that is invoked anytime a word is recognized.
       // 2. A configuration object with adjustable fields
-      return recognizer.listen(
+      recognizer.listen(
         async (result) => {
           // render the probability scores per class
           classLabels.map(async (_, i) => {
@@ -38,6 +38,10 @@ export default function SearchResultsBlock() {
           overlapFactor: 0.5, // probably want between 0.5 and 0.75. More info in README
         }
       )
+      setTimeout(() => {
+        recognizer.stopListening()
+        setIsListening(false)
+      }, 30000)
     } catch (e) {
       console.error(e)
     }
