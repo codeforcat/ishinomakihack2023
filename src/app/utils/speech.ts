@@ -1,7 +1,7 @@
 import * as speechCommands from '@tensorflow-models/speech-commands'
 import * as tf from '@tensorflow/tfjs'
 
-const URL = 'https://teachablemachine.withgoogle.com/models/SM3n2-sjx/'
+const URL = 'https://teachablemachine.withgoogle.com/models/RDu_AMlyM/'
 
 export const createSpeechCommandsModel = async () => {
   tf.setBackend('webgl')
