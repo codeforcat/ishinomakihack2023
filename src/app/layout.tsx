@@ -3,7 +3,8 @@ import { flex, grid } from '../../styled-system/patterns'
 import './globals.css'
 
 const title = 'CatGPT'
-const description = 'AIでネコのペイン状態を理解し、ネコとヒトのより良いコミュニケーションを。'
+const description =
+  'AIでネコのペイン状態を理解し、ネコとヒトのより良いコミュニケーションを。'
 const imgUrl = 'https://ishinomakihack2023.vercel.app/images/og.png'
 
 export const metadata: Metadata = {
